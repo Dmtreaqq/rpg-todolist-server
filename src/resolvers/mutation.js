@@ -15,4 +15,16 @@ module.exports = {
       return false;
     }
   },
+  checkTodo: async (parent, { id }, { models }) => {
+    try {
+      const todo = await models.Todo.findById(id);
+      todo.done = !todo.done;
+      const checkedTodo = await todo.save();
+
+      return checkedTodo;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  },
 };

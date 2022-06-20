@@ -13,5 +13,6 @@ module.exports = gql`
   type Mutation {
     createTodo(title: String!, category: String): Todo!
     deleteTodo(id: ID!): Boolean!
+    checkTodo(id: ID!): Todo!
   }
 `;
